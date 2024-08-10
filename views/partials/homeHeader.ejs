@@ -1,0 +1,63 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Welcome <%=userFind.userName %>!</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+        <ul>
+          <li><a href="/home/mycart/<%=userFind._id %>">View my cart</a></li>
+          <li><a href="/home/myorders/<%=userFind._id %>">My orders</a></li>
+          <li><a href="/home/<%=userFind._id %>">>>Go to home</a></li>
+        </ul>
+        
+        
+
+      </div>
+      <div class="Logout p-2">
+         
+        <button type="submit" class=" btn btn-outline-success" >
+            <a class="Logout-button" style="color:red;" href="/">Logout</a></button>
+     
+        
+      </div>
+    </div>
+  </div>
+  
+   <div>
+    <nav class="navbar mb-0 pb-0" style="background-color:rgb(245, 132, 67); width:100%">
+      <div class="nav-items d-flex mb-0 w-screen " style="transform: translateX(20px);">
+        <div class="brand me-auto p-0 d-flex" style="width:20%; height:20%; margin-bottom: 0;">
+          <img class="brand-logo rounded-circle" style="width:20%; height:20%;" src="https://static.vecteezy.com/system/resources/previews/014/928/370/non_2x/check-mark-shopping-bag-logo-shopping-bag-icon-for-online-shop-business-logo-vector.jpg" alt="">
+          <h1 class="brand-name text-white" style="transform: translateX(20px);">Shop-Z</h1>
+        </div>
+        <div class="search-bar p-2">
+          <form class="search-filter form-inline d-flex" method="POST" action="/home/search/<%=userFind._id %>" >
+            <input class="form-control search  p-2" style="transform: translateX(-60px);" name="searchTerm" type="search" placeholder="Search" aria-label="Search">
+            <!--<button class="btn btn-outline-success my-1 my-sm-0 p-2" name="searchTerm" type="Submit">Search</button>-->
+          </form>
+        </div>
+       <div class="cart p-2">
+      
+        <a href="/home/mycart/<%=userFind._id %>" style="color: white;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" style="transform: translateX(-50px);" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+          </svg>
+        </a>
+      </div>
+  
+      <div >
+       
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" data-bs-toggle="offcanvas" style="transform: translateX(-50px); color:green" fill="currentColor" role="button" aria-controls="offcanvasExample" href="#offcanvasExample" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg>
+       
+      </div>
+          
+        </div>
+       
+       
+      </div>
+           
+      </nav>

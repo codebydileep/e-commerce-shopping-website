@@ -1,0 +1,135 @@
+
+
+.brand-logo{
+   
+    height: 4rem;
+    width:4rem;
+    
+}
+.brand-name{
+    color:white;
+   
+    padding: 10px;
+    
+}
+.cart{
+    transform: translateX(-60px);
+}
+
+.bi-person-circle{
+  background-color: none;
+  color: rgb(82, 129, 6);
+  padding-top: 5px;
+  transform: translateX(-50px);
+ 
+}
+
+a{
+    text-decoration: none;
+}
+
+.offcanvas-header{
+    background-color: rgb(185, 72, 6);
+    color: white;
+}
+h2{
+    color:white;
+    text-align: center;
+    background-color: rgb(245, 132, 67);
+    padding: 0;
+}
+.h2:hover{
+    background-color: white;
+    color: black;
+}
+strong{
+    color:white;
+    background-color: rgb(245, 132, 67);
+    text-align: center;
+    padding: 0;
+}
+#products{
+    max-height: 100px;
+    max-width: 200px;
+    text-align: center;
+    margin: 10%;
+    display:grid;
+    grid-template-columns: repeat(3,4fr);
+    gap:50px;
+    
+}
+.product:hover{
+    border:3px solid rgb(177, 169, 145);
+    
+}
+.icons{
+    color:white;
+    display: flex;
+    justify-content: flex-end;
+    margin:1rem;
+
+}
+.edit:hover{
+    color: rgb(15, 165, 140);
+}
+.delete:hover{
+    color: rgb(248, 6, 6);
+}
+
+
+.home{
+    color: white;
+    margin-right: 4rem;
+}
+ul{
+    list-style-type: none;
+}
+.search-filter{
+    margin-right: 4rem;
+}
+.search{
+    margin-right: 1rem;
+}
+
+#myCart{
+    height: 370px;
+    width: 300px;
+    background-color: rgb(245, 132, 67);
+    
+    padding: 10px;
+    border-radius: 10px;
+}
+table{
+    background-color: aqua;
+}
+.product{
+    height: 370px;
+    width: 300px;
+    background-color: rgb(245, 132, 67);
+    
+    padding: 10px;
+    border-radius: 10px;
+}
+img{
+    width:80%;
+    height: 200px;
+}
+.boredGif{
+    width:20%;
+    height: 300px;
+}
+.emptycartGif{
+    width:50%;
+    height:25rem;
+}
+.nothingGIF{
+    width:50%;
+    height:25rem;
+}
+.emptyorderGif{
+    width:50%;
+    height:25rem;
+}
+.navbar{
+    background-color: rgb(245, 132, 67);
+}

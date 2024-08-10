@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay and Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="/public/css/styles.css" rel="stylesheet" type="text/css">
+    
+</head>
+<body>
+   <div>
+    <%- include('../partials/homeHeader'); %>
+  <% if(messages.success){%>
+    <ul class="alert alert-success text-center">
+      <li><%=messages.success%>
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+      </li>
+    </ul>
+    <% } %>
+    <% if(messages.error){%>
+      <ul class="alert alert-danger text-center">
+        <li><%=messages.error%>
+          <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+        </li>
+      </ul>
+        <% } %>
+        <div class="productImage ms-5 mt-4">
+          <img class="rounded float-start " src="<%=productsData.productImage %>" style="height: 400px; width: 300px;"alt="cover">
+
+        </div>
+        <div class="card float-end border border-2 border-warning text-warning" style="width:50rem; margin-right: 10%;  margin-bottom: 10%;">
+        
+          <div class="card-body rounded-5" style=" color: white;">
+            <h5 class="card-title text-info text-center mb-4">Order Details</h5>
+            <strong class="text-warning bg-white">User Name: <%=userFind.userName%></strong><br>
+            <strong class="text-warning bg-white">Product Details:<br> <%=productsData.productName%></strong><br>
+                <strong class="text-warning bg-white"><%=productsData.category %></strong><br>
+                <p class="text-warning"><%=productsData.Description %></p><br>
+                <p class="text-warning">Price: Rs. <%=productsData.price %></p>
+                <form action="/home/confirmOrder/<%=userFind._id %>/<%=productsData._id %>" method="post">
+                <div class="row mb-3">
+                    <label for="address" class="col-sm-3 col-form-label text-warning">Delivery Address</label>
+                    <div class="col-sm-6">
+                      <textarea type="text" class="form-control" name="address" id="address" rows="4"></textarea>
+                    </div>
+                  </div>  
+                
+                <div class="form-check text-center">
+                    <input type="radio" name="CashonDelivery" id="CashonDelivery" value="option1" onchange="updateButtonState()">
+                    <label class="form-check-label text-info" for="flexRadioDefault2">
+                      Cash on Delivery
+                    </label>
+                  </div>
+                            
+              <button type="submit" id="ConfirmOrder" disabled style="transform:translateX(330px)" class="btn btn-outline-success" >Confirm Order</button>  
+            </form>
+          </div>
+          
+<style>
+    /* Style for disabled button */
+    #ConfirmOrder[disabled] {
+      background-color: grey;
+      color:white
+    }
+  </style>
+      <script>
+        function updateButtonState() {
+            var addressValue = document.getElementById('address').value;
+    var CashonDeliveryChecked = document.getElementById('CashonDelivery').checked;
+    var ConfirmOrderButton = document.getElementById('ConfirmOrder');
+
+    // Enable the button only if both the radio button and the address are filled
+    if (addressValue && CashonDeliveryChecked) {
+      ConfirmOrderButton.disabled = false;
+    } else {
+      ConfirmOrderButton.disabled = true;
+    }
+  }
+      </script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+    </div>
+      
+</body>
+
+</html>
+

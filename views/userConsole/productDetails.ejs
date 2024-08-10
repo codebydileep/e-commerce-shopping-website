@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View more</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="/public/css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div>
+    
+   
+
+    <% if(messages.error){%>
+      <ul class="alert alert-danger text-center">
+        <li><%=messages.error%>
+          <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+        </li>
+      </ul>
+        <% } %>
+
+
+        <% if (typeof userFind !== 'undefined' && userFind._id !== "") { %>
+        <%- include('../partials/homeHeader'); %>
+    <div class="card mx-auto border border-2 border-warning text-warning" style="width:50rem; margin-top: 2%; margin-bottom: 10%;">
+        
+        <div class="card-body rounded-5" style=" color: white;">
+          <h5 class="card-title text-center mb-4">Product Details</h5>
+          
+          <img class="rounded mx-auto d-block" src="<%=productsData.productImage %>" style="height: 200px; width: 150px;"alt="cover">
+                  <h2 class="text-warning bg-white"><%=productsData.productName%></h2>
+              <strong class="text-warning bg-white"><%=productsData.category %></strong>
+              <p class="text-warning"><%=productsData.Description %></p>
+              <p class="text-warning">Rs. <%=productsData.price %></p>
+
+          <div class="product-buttons">
+            <form action="/home/addtocart/<%=userFind._id %>/<%=productsData._id %>" method="POST">
+              <button type="submit" class="btn btn-outline-warning" style="transform:translateX(330px); margin-bottom: 5px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                  <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
+                  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                </svg>
+                Add to Cart</button>
+          </form>                    
+            <button type="button" style="transform:translateX(341px)" class="btn btn-outline-success" onclick="location.href = '/home/purchase/<%=userFind._id %>/<%=productsData._id %>';" >Order Now</button>  
+          </div>
+        </div>
+        <% } else { %>
+          <%- include('../partials/indexHeader'); %>
+          <div class="card mx-auto border border-2 border-warning text-warning" style="width:50rem; margin-top: 2%; margin-bottom: 10%;">
+        
+            <div class="card-body rounded-5" style=" color: white;">
+              <h5 class="card-title text-center mb-4">Product Details</h5>
+              
+              <img class="rounded mx-auto d-block" src="<%=productsData.productImage %>" style="height: 200px; width: 150px;"alt="cover">
+                  <h2 class="text-warning bg-white"><%=productsData.productName%></h2>
+              <strong class="text-warning bg-white"><%=productsData.category %></strong>
+              <p class="text-warning"><%=productsData.Description %></p>
+              <p class="text-warning">Rs. <%=productsData.price %></p>
+              <div class="product-buttons">
+                
+                  <button type="submit" class="btn btn-outline-warning" style="transform:translateX(250px); margin-bottom: 5px;" onclick="location.href = '/addtocart';">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
+                      <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                    </svg>
+                    Add to Cart</button>
+                               
+                <button type="button" style="transform:translateX(280px)" class="btn btn-secondary" disabled onclick="location.href = '/home/purchase/<%=productsData._id %>';" >Order Now</button>  
+              </div>
+            </div>
+            <% } %>
+
+       
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </div>
+
+
+
+    
+</body>
+</html>
